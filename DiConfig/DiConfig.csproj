@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AbstractDependencies\AbstractDependencies.csproj" />
+    <ProjectReference Include="..\Logger\ServiseLogger.csproj" />
     <ProjectReference Include="..\Repository\Repository.csproj" />
     <ProjectReference Include="..\Servises\Servises.csproj" />
   </ItemGroup>

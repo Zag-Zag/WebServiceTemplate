@@ -1,13 +1,11 @@
 ﻿using AbstractDependencies.DiConfig;
-using DataBaseEf;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using ServiseLogger;
 
 namespace DiConfig;
 
-internal class DataBaseModule : IDiModuleBase
+internal class LoggerModule : IDiModuleBase
 {
     public IServiceCollection Registration(IServiceCollection services) =>
-        services
-            .AddDbContext<DbContext, ContextEf>();
+        services.AddScoped<IManagerLogger, ManagerLogger>();
 }

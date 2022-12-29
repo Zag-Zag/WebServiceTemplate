@@ -1,4 +1,5 @@
 ﻿using AbstractDependencies.DiConfig;
+using DataBaseEf.Configurations;
 using Microsoft.Extensions.DependencyInjection;
 using Servises.Options;
 using System;
@@ -9,11 +10,9 @@ internal class ConfigurationsModule : IDiConfigurationsModule
 {
 
     public IServiceCollection Registration(IServiceCollection services, Action<Type, object> configureOptions) =>
-        configureOptions != default
+        configureOptions == default
         ? services
-            .Configure<ServiseConfiguration>(setting =>
-            {
-                configureOptions(typeof(ServiseConfiguration), setting);
-            })
-        : services;
+        : services
+            .Configure<ServiseConfiguration>(setting =>configureOptions(typeof(ServiseConfiguration), setting))
+            .Configure<ServiseLoggerConfiguration>(setting => configureOptions(typeof(ServiseLoggerConfiguration), setting));
 }

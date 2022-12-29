@@ -1,6 +1,5 @@
 ﻿using AbstractDependencies.DiConfig;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 
 namespace DiConfig;
 
@@ -14,7 +13,8 @@ public class DiModule : IDiModule
             .AddModule<RepositoriesModule>()
             .AddModule<ServicesModule>()
             .AddModule<AutomapperModule>()
-            .AddModule<RepositoriesModule>();
+            .AddModule<RepositoriesModule>()
+            .AddModule<LoggerModule>();
 
     public IDiModule SetCreaterConfigurationSection(Action<Type, object> configureOptions)
     {
